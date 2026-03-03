@@ -18,7 +18,7 @@ This project predicts student performance based on:
 - CSS
 
 ## Output Screenshot
-(Add screenshot here)
+![Project Result](static/images/output.png)
 
 ##  Developed by
 Ramapriya – B.Tech AI & DS
