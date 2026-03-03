@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>AI-Powered Student Success Predictor</h1>
+        <p>Predict academic outcomes using machine learning</p>
+    </div>
+
+    <div class="main">
+        <div class="container">
+
+            <form action="/predict" method="post">
+
+                <label>Study Time (1-4)</label>
+                <input type="number" name="studytime" required>
+
+                <label>Failures (0-3)</label>
+                <input type="number" name="failures" required>
+
+                <label>Number of Absence Days</label>
+                <input type="number" name="absences" required>
+
+                <label>Midterm Grade (0-20)</label>
+                <input type="number" name="G2" required>
+
+                <button type="submit">Analyze</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

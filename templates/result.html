@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>______Prediction Result______</h1>
+
+    <div class="result-box">
+        <h2>{{ result }}</h2>
+        <p>Confidence: {{ probability }}%</p>
+        <p>Risk Level: {{ risk }}</p>
+    </div>
+
+    <a  href="/" class="back-btn">← Back</a>
+
+</div>
+
+</body>
