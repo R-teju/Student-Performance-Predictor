@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Performance AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>Student Performance AI | Predictor</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div class="header">
         <h1>AI-Powered Student Success Predictor</h1>
-        <p>Predict academic outcomes using machine learning</p>
+        <p>Predict final academic outcomes and pass/fail probability using machine learning</p>
+    </div>
+
+    <div class="nav-actions">
+        <a href="/dashboard" class="nav-link">📊 View Analytics Dashboard</a>
     </div>
 
     <div class="main">
         <div class="container">
-
             <form action="/predict" method="post">
+                
+                <div class="form-group">
+                    <label for="studytime">Weekly Study Time</label>
+                    <div class="helper-text">Hours spent: 1 ( &lt;2 hrs ), 2 ( 2-5 hrs ), 3 ( 5-10 hrs ), 4 ( &gt;10 hrs )</div>
+                    <input type="number" id="studytime" name="studytime" min="1" max="4" placeholder="1 - 4" required>
+                </div>
 
-                <label>Study Time (1-4)</label>
-                <input type="number" name="studytime" required>
+                <div class="form-group">
+                    <label for="failures">Past Class Failures</label>
+                    <div class="helper-text">Number of previous failed courses (0 to 3, or 4 if 4+)</div>
+                    <input type="number" id="failures" name="failures" min="0" max="4" placeholder="0 - 4" required>
+                </div>
 
-                <label>Failures (0-3)</label>
-                <input type="number" name="failures" required>
+                <div class="form-group">
+                    <label for="absences">Absence Days</label>
+                    <div class="helper-text">Total number of days absent during the academic term</div>
+                    <input type="number" id="absences" name="absences" min="0" max="93" placeholder="e.g. 3" required>
+                </div>
 
-                <label>Number of Absence Days</label>
-                <input type="number" name="absences" required>
+                <div class="form-group">
+                    <label for="G2">Midterm Exam Score</label>
+                    <div class="helper-text">Midterm grade score out of 20 (0.0 to 20.0)</div>
+                    <input type="number" id="G2" name="G2" min="0" max="20" step="0.1" placeholder="e.g. 14.5" required>
+                </div>
 
-                <label>Midterm Grade (0-20)</label>
-                <input type="number" name="G2" required>
-
-                <button type="submit">Analyze</button>
+                <button type="submit">Analyze Success Probability</button>
 
             </form>
-
         </div>
     </div>
 

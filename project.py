@@ -29,8 +29,22 @@ model = RandomForestClassifier(
 
 model.fit(X_train, y_train)
 
-print("Model Accuracy:", model.score(X_test, y_test))
+accuracy = model.score(X_test, y_test)
+print("Model Accuracy:", accuracy)
 
-# Save
+# Get feature importances
+importances = dict(zip(features, model.feature_importances_.tolist()))
+
+# Export metadata
+import json
+metadata = {
+    "accuracy": float(accuracy),
+    "feature_importances": importances
+}
+with open("model_metadata.json", "w") as f:
+    json.dump(metadata, f, indent=4)
+print("Model metadata saved to model_metadata.json.")
+
+# Save model
 pickle.dump(model, open("model.pkl", "wb"))
 print("Model saved.")
